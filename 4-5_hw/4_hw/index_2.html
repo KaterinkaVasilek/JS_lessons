@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict';
+        
+        //ES5
+        function Product (name, price) {
+            this.name = name;
+            this.price = price;
+        }
+        let newProductPrice = new Product ('cup', 350);
+
+        let result;
+        Product.prototype.make25PercentDiscount = function (price) {
+            result = price / 100 * 25; //я здесь больше времени потеряла, чем с самим кодом и все равно что-то не так
+        }
+        newProductPrice.make25PercentDiscount(350);
+        console.log(`Цена за чашку со скидкой 25%: ${result}`);
+
+        //ES6
+        let result;
+        class Product {
+            constructor (name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            make25PercentDiscount(price) {
+                result = price / 100 * 25;
+            }
+        }
+        let newProductPrice = new Product ('cup', 350);
+        newProductPrice.make25PercentDiscount(350);
+
+    </script>
+</body>
+</html>
